@@ -20,19 +20,22 @@ body {
 }
 
 .option:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     cursor: pointer;
 }
 
 .player-container,
 .cpu-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
     border: 1px solid black;
     margin: 10px;
     background: #dfdfdf;
 }
 
-.player-container {
+
+.player-options,
+.cpu-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+
 }
