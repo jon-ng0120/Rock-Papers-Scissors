@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(190, 185, 255);
+}
+
+.main-container {
+   width: 60%;
+   margin: auto;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+}
+
+.option {
+    font-size: 4rem;
+    padding: 0.8rem;
+}
+
+.option:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.player-container,
+.cpu-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    border: 1px solid black;
+    margin: 10px;
+    background: #dfdfdf;
+}
+
+.player-container {
+}
