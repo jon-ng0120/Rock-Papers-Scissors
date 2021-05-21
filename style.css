@@ -4,14 +4,24 @@
 }
 
 body {
-    background: rgb(190, 185, 255);
+    background: #007690;
+    font-family: 'Roboto', sans-serif;
 }
 
 .main-container {
-   width: 60%;
+   width: 70%;
    margin: auto;
-   display: grid;
-   grid-template-columns: 1fr 1fr;
+}
+
+.round-container {
+    text-align: center;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .option {
@@ -26,16 +36,22 @@ body {
 
 .player-container,
 .cpu-container {
-    border: 1px solid black;
+    
     margin: 10px;
-    background: #dfdfdf;
+    
 }
 
+.player-score-container,
+.cpu-score-container {
+    text-align: center;
+    padding: 2rem;
+}
 
-.player-options,
-.cpu-options {
+.player-options-container,
+.cpu-options-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
-
+    background: #dfdfdf;
+    border: 1px solid black;
 }
