@@ -1,50 +1,66 @@
-const choices = ['rock', 'paper', 'scissors'];
-let playerScore = 0;
-let computerScore = 0;
+// rock, paper, scissor divs
+const roundOutcome = document.querySelector('.round-container');
+
+const playerContainer = document.querySelector('.player-container');
+const cpuContainer = document.querySelector('.cpu-container');
+
+const playerRock = playerContainer.querySelector('.rock')
+const playerPaper = playerContainer.querySelector('.paper')
+const playerScissors = playerContainer.querySelector('.scissors')
+
+const cpuRock = cpuContainer.querySelector('.rock')
+const cpuPaper = cpuContainer.querySelector('.paper')
+const cpuScissors = cpuContainer.querySelector('.scissors')
+
+const cpuOptions = [cpuRock, cpuPaper, cpuScissors];
+const playerOptions = [playerRock, playerPaper, playerScissors];
+
+let playerScoreContainer = document.querySelector('.player-score').innerText;
+let computerScoreContainer = document.querySelector('.cpu-score').innerText;
+
+
+playerOptions.forEach(option => {
+    option.addEventListener('click', function() {
+        playRound(this.getAttribute("data-option"), computerPlay())
+    })
+})
 
 function computerPlay() {
-    return choices[Math.floor(Math.random() * choices.length)];
-}
-
-function playerPlay() {
-    let playerOption = prompt("Please choose rock, paper, or scissors").toLowerCase()
-    while (!choices.includes(playerOption)) {
-        playerOption = prompt("Please choose rock, paper, or scissors")
-    }
-    return playerOption
+    cpuChoice = cpuOptions[Math.floor(Math.random() * cpuOptions.length)];
+    return cpuChoice.getAttribute("data-option");
 }
 
 function playRound(playerChoice, computerChoice) {
-    let outcome = `Player chose ${playerChoice} and computer chose ${computerChoice}. `;
-
+    console.log(playerChoice)
+    console.log(computerChoice)
     if (playerChoice == computerChoice) {
-        outcome += "It's a tie"
+        roundOutcome.innerText = "It's a tie"
     } else if (playerChoice == 'rock') {
         if (computerChoice == "scissors") {
-            outcome += "Player wins!";
-            playerScore++;
+            roundOutcome.innerText = "Player wins!";
+
         } else {
-            outcome += "Computer wins...";
-            computerScore++
+            roundOutcome.innerText = "Computer wins...";
+     
         }
     } else if (playerChoice == 'paper') {
         if (computerChoice == "rock") {
-            outcome += "Player wins!";
-            playerScore++;
+            roundOutcome.innerText= "Player wins!";
+            
         } else {
-            outcome += "Computer wins...";
-            computerScore++
+            roundOutcome.innerText = "Computer wins...";
+            
         }
     } else if (playerChoice == 'scissors') {
         if (computerChoice == "paper") {
-            outcome += "Player wins!";
-            playerScore++;
+            roundOutcome.innerText = "Player wins!";
+            
         } else {
-            outcome += "Computer wins...";
-            computerScore++
+            roundOutcome.innerText = "Computer wins...";
+            
         }
     } 
-    return outcome
+    //return outcome
 }
 
 function game() {
@@ -66,4 +82,4 @@ function game() {
     }
 }
 
-game();
+// game();
