@@ -4,20 +4,12 @@ const roundOutcome = document.querySelector('.round-container');
 const playerContainer = document.querySelector('.player-container');
 const cpuContainer = document.querySelector('.cpu-container');
 
-const playerRock = playerContainer.querySelector('.rock')
-const playerPaper = playerContainer.querySelector('.paper')
-const playerScissors = playerContainer.querySelector('.scissors')
+const playerOptions = playerContainer.querySelectorAll('.option')
+const cpuOptions = cpuContainer.querySelectorAll('.option')
 
-const cpuRock = cpuContainer.querySelector('.rock')
-const cpuPaper = cpuContainer.querySelector('.paper')
-const cpuScissors = cpuContainer.querySelector('.scissors')
 
-const cpuOptions = [cpuRock, cpuPaper, cpuScissors];
-const playerOptions = [playerRock, playerPaper, playerScissors];
-
-let playerScoreContainer = document.querySelector('.player-score').innerText;
-let computerScoreContainer = document.querySelector('.cpu-score').innerText;
-
+let playerScoreContainer = document.querySelector('.player-score')
+let computerScoreContainer = document.querySelector('.cpu-score')
 
 playerOptions.forEach(option => {
     option.addEventListener('click', function() {
@@ -38,29 +30,34 @@ function playRound(playerChoice, computerChoice) {
     } else if (playerChoice == 'rock') {
         if (computerChoice == "scissors") {
             roundOutcome.innerText = "Player wins!";
-
+            playerScoreContainer.innerText++
         } else {
             roundOutcome.innerText = "Computer wins...";
-     
+            computerScoreContainer.innerText++
         }
     } else if (playerChoice == 'paper') {
         if (computerChoice == "rock") {
             roundOutcome.innerText= "Player wins!";
-            
+            playerScoreContainer.innerText++
         } else {
             roundOutcome.innerText = "Computer wins...";
-            
+            computerScoreContainer.innerText++
         }
     } else if (playerChoice == 'scissors') {
         if (computerChoice == "paper") {
             roundOutcome.innerText = "Player wins!";
-            
+            playerScoreContainer.innerText++
         } else {
             roundOutcome.innerText = "Computer wins...";
-            
+            computerScoreContainer.innerText++
         }
     } 
     //return outcome
+}
+
+
+function checkWinner() {
+
 }
 
 function game() {
