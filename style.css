@@ -39,11 +39,16 @@ body {
 .option {
     font-size: 5rem;
     padding: 0.8rem;
+    margin: 0.8rem 0.6rem;
 }
 
 .option:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+
+.selected {
+    border: 5px solid #ff9102;
 }
 
 .player-container,

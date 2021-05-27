@@ -21,12 +21,15 @@ gameOverOverlay.style.display = 'none';
 
 playerOptions.forEach(option => {
     option.addEventListener('click', function() {
+        clearSelectedOptions();
+        this.classList.add('selected')
         playRound(this.getAttribute("data-option"), computerPlay())
     })
 })
 
 function computerPlay() {
     cpuChoice = cpuOptions[Math.floor(Math.random() * cpuOptions.length)];
+    cpuChoice.classList.add('selected');
     return cpuChoice.getAttribute("data-option");
 }
 
@@ -72,7 +75,15 @@ function checkWinner() {
     }
 }
 
+function clearSelectedOptions() {
+    const allOptions = [...playerOptions, ...cpuOptions]
+        allOptions.forEach(option => {
+            option.classList.remove('selected');
+        })
+}
+
 playAgainBtn.addEventListener('click', function() {
+    clearSelectedOptions()
     playerScoreContainer.innerText = '0';
     computerScoreContainer.innerText = '0';
     roundOutcome.innerText = '';
